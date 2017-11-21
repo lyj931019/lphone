@@ -1,0 +1,140 @@
+<!--
+  Generated template for the DetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar >
+    <ion-title *ngIf="detailInfo">
+      <b style="font-family:Old English Text MT;margin-right:20px;">L</b>
+      {{detailInfo.gname}}
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="picList.length>0">
+    <ion-slides 
+    style="height:140px"
+    pager effect="cube" autoplay="3000" loop="true">
+      <ion-slide *ngFor="let item of picList">
+        <img [src]="'assets/'+item.pic" alt="" style="height:140px;">
+      </ion-slide>
+    </ion-slides>
+  </div>
+  
+  <br>  
+  <div *ngIf="detailInfo">
+    <ion-item>
+      <p style="font-size:1.8em;font-weight:bold;color:#000">{{detailInfo.gname}}</p>
+      <p style="color:#333">{{detailInfo.abs}}</p>
+    </ion-item>
+    <ion-item>
+      <div>
+        <span class="tipTitle">支持平台: </span>
+        <span *ngFor="let terrace of gTerraces" class="tips">{{terrace.tname}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div>
+        <span class="tipTitle">游戏标签: </span>
+        <span *ngFor="let label of gLabels" class="tips">{{label.lname}}</span>
+      </div>
+    </ion-item>
+    
+
+
+    <p style="text-indent:20px;border-bottom:1px solid #ccc;padding:20px 5px;">{{detailInfo.intr}}</p>
+  </div>
+
+
+  <div *ngIf="gSpecs" >
+    <ion-list *ngFor="let tmp of gSpecs" style="margin-top:30px;margin-bottom:0;">
+      <div *ngIf="tmp.ishigh==0">
+        <ion-title class="spec-title">
+          <b>最低配置</b>
+        </ion-title>
+        <ion-item class="spec-item">
+          <b item-start>CPU: </b>
+          <span>{{tmp.cpu}}</span>
+        </ion-item>
+        <ion-item class="spec-item">
+          <b item-start>显卡: </b>
+          <span>{{tmp.graphics}}</span>
+        </ion-item>
+        <ion-item class="spec-item">
+          <b item-start>硬盘: </b>
+          <span>{{tmp.hardpan}}</span>
+        </ion-item>
+        <ion-item class="spec-item">
+          <b item-start>内存: </b>
+          <span>{{tmp.memory}}</span>
+        </ion-item>
+      </div>
+      <div *ngIf="tmp.ishigh==1">
+        <ion-title class="spec-title">
+          <b>推荐配置</b>
+        </ion-title>
+        <ion-item class="spec-item">
+          <b item-start>CPU: </b>
+          <span>{{tmp.cpu}}</span>
+        </ion-item>
+        <ion-item class="spec-item">
+          <b item-start>显卡: </b>
+          <span>{{tmp.graphics}}</span>
+        </ion-item>
+        <ion-item class="spec-item">
+          <b item-start>硬盘: </b>
+          <span>{{tmp.hardpan}}</span>
+        </ion-item>
+        <ion-item class="spec-item">
+          <b item-start>内存: </b>
+          <span>{{tmp.memory}}</span>
+        </ion-item>
+      </div>
+      
+  </ion-list>
+  </div>
+  <div *ngIf="gPQR" style="text-align:center">
+    <ion-title class="spec-title">
+      <b>Android</b>
+    </ion-title>
+    <img [src]="'assets/'+gPQR.android" alt="" >
+    <ion-title class="spec-title">
+      <b>IOS</b>
+    </ion-title>
+    <img [src]="'assets/'+gPQR.ios" alt="">
+  </div>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-row>
+          <ion-col >
+            <div *ngIf="detailInfo" style="line-height:52px;">
+              <span style="color:#F53D3D;font-weight:bold;font-size:22px;">{{'￥'+detailInfo.price}}</span>
+            </div>
+          </ion-col>
+          <ion-col>
+            <button  (click)="jumpToNotFound()" ion-button clear block color="dark">
+              <ion-icon name="heart"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <button (click)="jumpToNotFound()" ion-button color="danger" block >
+          立刻下载
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

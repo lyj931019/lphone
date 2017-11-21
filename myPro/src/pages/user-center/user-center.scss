@@ -1,0 +1,56 @@
+page-user-center {
+
+}
+p.userTitle{
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+}
+.user-avater-list{
+    // background-color: #ccc;
+    border-top: 1px solid #888;
+    border-bottom: 1px solid #888;
+}
+.user-floor{
+    background-color: #fff;
+    // vertical-align: middle;
+    padding:10px 0;
+    padding-left:20px;
+    font-size: 1.5em;
+}
+
+.user-floor img{
+    border-radius: 50%;
+    width: 70px;
+    vertical-align: middle;
+    margin-right:10px; 
+}
+#page{
+    padding:0;
+}
+#page .scroll-content{
+    padding:0;
+}
+.first-floor{
+    margin-top: 7px;
+}
+.second-floor{
+    margin: 26px 0;
+}
+
+.next-floor{
+    border-top:1px solid #ccc;
+}
+.last-floor{
+    margin-top: 25px;
+}
+.user-logout{
+    margin-top: 18px;
+}
+span.userTitle{
+    vertical-align: middle;
+    padding-left: 20px;
+}
+ion-icon{
+    vertical-align: middle;
+}

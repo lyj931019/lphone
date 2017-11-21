@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><b style="font-family:Old English Text MT;margin-right:20px;">L</b>游戏列表</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+   <ion-list *ngIf="gameList">
+    <ion-item (click)="jumpToDetail(myIndex)" *ngFor="let item of gameList;let myIndex=index">
+      <ion-thumbnail item-start>
+        <img [src]="'assets/'+item.logo"/>
+      </ion-thumbnail>
+      <h3>{{item.gname}}</h3>
+      <p>{{item.abs}}</p>
+      <button ion-button clear item-end>
+          <ion-icon name="download" color="danger"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<!--<ion-refresher (ionRefresh)="doRefresh($event)">
+</ion-refresher>-->
+

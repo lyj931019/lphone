@@ -1,0 +1,49 @@
+<!--
+  Generated template for the UserCenterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <div *ngIf="userInfo">
+      <ion-title>
+        <b style="font-family:Old English Text MT;margin-right:20px;">L</b>
+        欢迎回来： {{userInfo.uname}}
+      </ion-title>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background-color:#ccc" id="page">
+
+
+    <div *ngIf="userInfo" class="user-floor first-floor">
+      <img [src]="'assets/'+userInfo.avatar" />
+      <span class="userTitle">{{userInfo.uname}}</span>
+    </div>
+    <div *ngIf="userInfo" class="user-floor second-floor" (click)="jumpToNotFound()">
+      <ion-icon name="folder-open" color="danger"></ion-icon>
+      <span class="userTitle">钱包</span>
+    </div>
+    <div *ngIf="userInfo" class="user-floor third-floor" (click)="jumpToNotFound()">
+      <ion-icon name="heart" color="danger"></ion-icon>
+      <span class="userTitle">我的收藏</span>
+    </div>
+    <div *ngIf="userInfo" class="user-floor next-floor" (click)="jumpToNotFound()">
+      <!--<ion-icon name="jet" color="danger"></ion-icon>-->
+      <ion-icon name="logo-nodejs" color="danger"></ion-icon>
+      <span class="userTitle">我的游戏</span>
+    </div>
+
+    <div *ngIf="userInfo" class="user-floor last-floor" (click)="jumpToNotFound()">
+      <ion-icon name="settings" color="danger"></ion-icon>
+      <span class="userTitle">设置</span>
+    </div>
+    <div style="padding:0 20px;">
+      <button ion-button block color="dark" (click)="userLogout()" class="user-logout">注销</button>
+    </div>
+</ion-content>

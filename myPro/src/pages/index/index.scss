@@ -1,0 +1,25 @@
+page-index {
+
+}
+
+::-webkit-scrollbar{
+    display: none
+}
+
+.floor-col{
+    text-align:center;
+    border:1px solid #888;
+}
+.floor-col-title{
+    width:100%;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-weight:bold;
+    font-size:1.3em;
+    margin:2px 0;
+}
+.floor-col-price{
+    margin:2px 0;
+    color:#f53d3d;
+}

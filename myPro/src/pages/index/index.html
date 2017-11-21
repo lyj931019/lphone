@@ -1,0 +1,122 @@
+<!--
+  Generated template for the IndexPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    
+    <ion-title>
+      <b style="font-family:Old English Text MT;margin-right:20px;">L</b>
+      L:KAGGLE
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <!--显示轮播图-->
+  <h3 style="border-bottom:1px solid #aaa">
+    <ion-icon name="logo-playstation" color="danger"></ion-icon>
+    热门游戏
+  </h3>
+  <ion-slides  style="height:120px" *ngIf="carouselItems.length>0" autoplay="3000" pager effect="cube" loop="true">
+
+    <ion-slide *ngFor="let item of carouselItems">
+      <img [src]="'assets/'+item.shop_p"/>
+    </ion-slide>
+
+  </ion-slides>
+
+  <!--显示横向滚动的列表
+  white-space:nowrap
+  -->
+   <h3 style="border-bottom:1px solid #aaa">
+    <ion-icon name="ios-speedometer" color="danger"></ion-icon>
+    限时优惠
+  </h3>
+  <ion-scroll scrollX="true" style="white-space:nowrap;height:210px">
+    <ion-card style=" display:inline-block;width:110px;text-align:center" *ngFor="let item of newArrivalItems">
+      <img style="width:100%;margin:auto" [src]="'assets/'+item.logo" alt="">
+      <ion-card-content>
+          <p  style="width:100%; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+            {{item.gname}}
+          </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-scroll>
+  <!--缩略图列表-->
+  <ion-list>
+    <ion-item (click)="jumpToDetail(myIndex)" *ngFor="let item of recommendedItems;let myIndex=index">
+      <ion-thumbnail item-start>
+        <img [src]="'assets/'+item.logo"/>
+      </ion-thumbnail>
+      <h3>{{item.gname}}</h3>
+      <p>{{item.abs}}</p>
+      <button ion-button clear item-end>
+          <ion-icon name="download"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+
+  <h3 style="border-bottom:1px solid #aaa">
+     <ion-icon name="ios-desktop" color="danger"></ion-icon>
+    PC游戏
+  </h3>
+  <ion-grid  *ngIf="floors">
+    <ion-row *ngIf="floors.pc.length>0">
+      <ion-col col-6 *ngFor="let tmp of floors.pc;let myIndex=index;" (click)="jumpToDetail(myIndex,'pc')" class="floor-col">
+          <img [src]="'assets/'+tmp.logo" alt="">
+          <h4 class="floor-col-title">{{tmp.gname}}</h4>
+          <h5 class="floor-col-price">¥{{tmp.price}}</h5>      
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <h3 style="border-bottom:1px solid #aaa">
+     <ion-icon name="game-controller-b" color="danger"></ion-icon>
+    主机游戏
+  </h3>
+  <ion-grid  *ngIf="floors">
+    <ion-row *ngIf="floors.host.length>0">
+      <ion-col col-6 *ngFor="let tmp of floors.host;let myIndex=index;" class="floor-col" (click)="jumpToDetail(myIndex,'host')">
+        <img [src]="'assets/'+tmp.logo" alt="">
+        <h4 class="floor-col-title">{{tmp.gname}}</h4>
+        <h5 class="floor-col-price">¥{{tmp.price}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+   <h3 style="border-bottom:1px solid #aaa">
+      <ion-icon name="phone-landscape" color="danger"></ion-icon>
+    手机游戏
+  </h3>
+  <ion-grid  *ngIf="floors">
+    <ion-row *ngIf="floors.phone.length>0">
+      <ion-col col-6 *ngFor="let tmp of floors.phone;let myIndex=index;" class="floor-col" (click)="jumpToDetail(myIndex,'phone')">
+        <img [src]="'assets/'+tmp.logo" alt="">
+        <h4 class="floor-col-title">{{tmp.gname}}</h4>
+        <h5 class="floor-col-price">¥{{tmp.price}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+   <h3 style="border-bottom:1px solid #aaa">
+    <ion-icon name="globe" color="danger"></ion-icon>
+    网络游戏
+  </h3>
+  <ion-grid  *ngIf="floors">
+    <ion-row *ngIf="floors.net.length>0">
+      <ion-col col-6 *ngFor="let tmp of floors.net;let myIndex=index;" class="floor-col" (click)="jumpToDetail(myIndex,'net')">
+        <img [src]="'assets/'+tmp.logo" alt="">
+        <h4 class="floor-col-title">{{tmp.gname}}</h4>
+        <h5 class="floor-col-price">¥{{tmp.price}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
